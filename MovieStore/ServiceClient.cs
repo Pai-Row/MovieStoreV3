@@ -17,4 +17,5 @@ namespace MovieStore
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetGenreNames/")); 
         }
     }
+
 }
