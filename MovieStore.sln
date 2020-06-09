@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieSelfHost", "MovieSelfH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieSelfHost", "MovieSelfHost\MovieSelfHost.csproj", "{591D0ADF-C820-411B-B7E1-6DAFE9E49E13}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieWinForm", "MovieWinForm", "{A3899DCC-8ED2-497B-ABC4-2DCAB50EA01D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F4AC97E0-89E2-49EF-860F-60FC2F405579} = {A3899DCC-8ED2-497B-ABC4-2DCAB50EA01D}
 		{591D0ADF-C820-411B-B7E1-6DAFE9E49E13} = {3726867F-753C-4ECB-BA08-B62CEA088070}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

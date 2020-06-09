@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MovieSelfHost
 {
-    class MovieController : System.Web.Http.ApiController
+    public class MovieController : System.Web.Http.ApiController
     {
     public List<string> GetGenreNames()
     { 

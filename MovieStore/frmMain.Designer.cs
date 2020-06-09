@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblGenre = new System.Windows.Forms.Label();
-            this.lstGenre = new System.Windows.Forms.ListBox();
+            this.lstGenres = new System.Windows.Forms.ListBox();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
@@ -44,18 +44,13 @@
             this.lblGenre.TabIndex = 0;
             this.lblGenre.Text = "Genre";
             // 
-            // lstGenre
+            // lstGenres
             // 
-            this.lstGenre.FormattingEnabled = true;
-            this.lstGenre.Items.AddRange(new object[] {
-            "Action",
-            "Drama",
-            "Comedy",
-            "Horror"});
-            this.lstGenre.Location = new System.Drawing.Point(15, 25);
-            this.lstGenre.Name = "lstGenre";
-            this.lstGenre.Size = new System.Drawing.Size(151, 121);
-            this.lstGenre.TabIndex = 1;
+            this.lstGenres.FormattingEnabled = true;
+            this.lstGenres.Location = new System.Drawing.Point(15, 25);
+            this.lstGenres.Name = "lstGenres";
+            this.lstGenres.Size = new System.Drawing.Size(151, 121);
+            this.lstGenres.TabIndex = 1;
             // 
             // btnQuit
             // 
@@ -65,6 +60,7 @@
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // btnGenre
             // 
@@ -92,10 +88,11 @@
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.btnGenre);
             this.Controls.Add(this.btnQuit);
-            this.Controls.Add(this.lstGenre);
+            this.Controls.Add(this.lstGenres);
             this.Controls.Add(this.lblGenre);
             this.Name = "frmMain";
             this.Text = "Movie Store";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblGenre;
-        private System.Windows.Forms.ListBox lstGenre;
+        private System.Windows.Forms.ListBox lstGenres;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button btnGenre;
         private System.Windows.Forms.Button btnOrders;
