@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace MovieStore
 {
-    public partial class frmOrders : Form
+    public partial class frmBuyable : Form
     {
-        public frmOrders()
+        public frmBuyable()
         {
             InitializeComponent();
         }
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please select a movie from the list.", "Selection Missing",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

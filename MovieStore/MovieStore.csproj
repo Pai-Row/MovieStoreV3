@@ -62,17 +62,23 @@
     <Compile Include="frmGenre.Designer.cs">
       <DependentUpon>frmGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrders.cs">
+    <Compile Include="frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrders.Designer.cs">
-      <DependentUpon>frmOrders.cs</DependentUpon>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMovieDetails.cs">
+    <Compile Include="frmBuyable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMovieDetails.Designer.cs">
-      <DependentUpon>frmMovieDetails.cs</DependentUpon>
+    <Compile Include="frmBuyable.Designer.cs">
+      <DependentUpon>frmBuyable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentable.Designer.cs">
+      <DependentUpon>frmRentable.cs</DependentUpon>
     </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
@@ -89,11 +95,14 @@
     <EmbeddedResource Include="frmGenre.resx">
       <DependentUpon>frmGenre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrders.resx">
-      <DependentUpon>frmOrders.cs</DependentUpon>
+    <EmbeddedResource Include="frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMovieDetails.resx">
-      <DependentUpon>frmMovieDetails.cs</DependentUpon>
+    <EmbeddedResource Include="frmBuyable.resx">
+      <DependentUpon>frmBuyable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentable.resx">
+      <DependentUpon>frmRentable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

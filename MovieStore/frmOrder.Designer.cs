@@ -1,6 +1,6 @@
 ﻿namespace MovieStore
 {
-    partial class frmOrders
+    partial class frmOrder
     {
         /// <summary>
         /// Required designer variable.

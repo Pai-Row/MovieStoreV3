@@ -1,6 +1,6 @@
 ﻿namespace MovieStore
 {
-    partial class frmMovieDetails
+    partial class frmRentable
     {
         /// <summary>
         /// Required designer variable.
@@ -46,93 +46,104 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Location = new System.Drawing.Point(16, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(27, 13);
+            this.lblTitle.Size = new System.Drawing.Size(35, 17);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(15, 25);
+            this.txtTitle.Location = new System.Drawing.Point(20, 31);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(100, 20);
+            this.txtTitle.Size = new System.Drawing.Size(132, 22);
             this.txtTitle.TabIndex = 1;
             this.txtTitle.Text = "REC";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(12, 57);
+            this.lblPrice.Location = new System.Drawing.Point(16, 70);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(40, 13);
+            this.lblPrice.Size = new System.Drawing.Size(52, 17);
             this.lblPrice.TabIndex = 2;
             this.lblPrice.Text = "Price $";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(15, 73);
+            this.txtPrice.Location = new System.Drawing.Point(20, 90);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPrice.Size = new System.Drawing.Size(132, 22);
             this.txtPrice.TabIndex = 1;
             this.txtPrice.Text = "5.00";
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(12, 107);
+            this.lblQuantity.Location = new System.Drawing.Point(16, 132);
+            this.lblQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(46, 13);
+            this.lblQuantity.Size = new System.Drawing.Size(61, 17);
             this.lblQuantity.TabIndex = 3;
             this.lblQuantity.Text = "Quantity";
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(15, 123);
+            this.txtQuantity.Location = new System.Drawing.Point(20, 151);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(132, 22);
             this.txtQuantity.TabIndex = 1;
             this.txtQuantity.Text = "3";
             // 
             // lblRelease
             // 
             this.lblRelease.AutoSize = true;
-            this.lblRelease.Location = new System.Drawing.Point(12, 159);
+            this.lblRelease.Location = new System.Drawing.Point(16, 196);
+            this.lblRelease.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRelease.Name = "lblRelease";
-            this.lblRelease.Size = new System.Drawing.Size(72, 13);
+            this.lblRelease.Size = new System.Drawing.Size(94, 17);
             this.lblRelease.TabIndex = 4;
             this.lblRelease.Text = "Release Date";
             // 
             // txtRelease
             // 
-            this.txtRelease.Location = new System.Drawing.Point(15, 175);
+            this.txtRelease.Location = new System.Drawing.Point(20, 215);
+            this.txtRelease.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRelease.Name = "txtRelease";
-            this.txtRelease.Size = new System.Drawing.Size(100, 20);
+            this.txtRelease.Size = new System.Drawing.Size(132, 22);
             this.txtRelease.TabIndex = 1;
             this.txtRelease.Text = "29/08/2007";
             // 
             // lblReturnDate
             // 
             this.lblReturnDate.AutoSize = true;
-            this.lblReturnDate.Location = new System.Drawing.Point(12, 213);
+            this.lblReturnDate.Location = new System.Drawing.Point(16, 262);
+            this.lblReturnDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblReturnDate.Name = "lblReturnDate";
-            this.lblReturnDate.Size = new System.Drawing.Size(98, 13);
+            this.lblReturnDate.Size = new System.Drawing.Size(131, 17);
             this.lblReturnDate.TabIndex = 4;
             this.lblReturnDate.Text = "Return Date (Days)";
             // 
             // txtReturn
             // 
-            this.txtReturn.Location = new System.Drawing.Point(15, 229);
+            this.txtReturn.Location = new System.Drawing.Point(20, 282);
+            this.txtReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtReturn.Name = "txtReturn";
-            this.txtReturn.Size = new System.Drawing.Size(100, 20);
+            this.txtReturn.Size = new System.Drawing.Size(132, 22);
             this.txtReturn.TabIndex = 1;
             this.txtReturn.Text = "5";
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(182, 22);
+            this.btnOK.Location = new System.Drawing.Point(243, 27);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 5;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -140,9 +151,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(182, 57);
+            this.btnCancel.Location = new System.Drawing.Point(243, 70);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -150,17 +162,18 @@
             // lblDateModified
             // 
             this.lblDateModified.AutoSize = true;
-            this.lblDateModified.Location = new System.Drawing.Point(138, 244);
+            this.lblDateModified.Location = new System.Drawing.Point(184, 300);
+            this.lblDateModified.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateModified.Name = "lblDateModified";
-            this.lblDateModified.Size = new System.Drawing.Size(134, 13);
+            this.lblDateModified.Size = new System.Drawing.Size(172, 17);
             this.lblDateModified.TabIndex = 6;
             this.lblDateModified.Text = "Last Modified: 06/05/2020";
             // 
-            // frmMovieDetails
+            // frmRentable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 266);
+            this.ClientSize = new System.Drawing.Size(367, 327);
             this.Controls.Add(this.lblDateModified);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -174,8 +187,9 @@
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitle);
-            this.Name = "frmMovieDetails";
-            this.Text = "Movie Details";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "frmRentable";
+            this.Text = "Rentable";
             this.ResumeLayout(false);
             this.PerformLayout();
 

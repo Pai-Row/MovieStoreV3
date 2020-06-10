@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieStore
 {
-    public partial class frmMovieDetails : Form
+    public partial class frmRentable : Form
     {
-        public frmMovieDetails()
+        public frmRentable()
         {
             InitializeComponent();
         }
