@@ -62,20 +62,20 @@ namespace MovieStore
             }
         }
 
-        private void lstArtists_DoubleClick(object sender, EventArgs e)
+        private void lstGenres_DoubleClick(object sender, EventArgs e)
         {
-            //string lcKey;
+            string lcKey;
 
-            //lcKey = Convert.ToString(lstArtists.SelectedItem);
-            //if (lcKey != null)
-                //try
-                //{
-                    //frmArtist.Run(_ArtistList[lcKey]);
-                //}
-               // catch (Exception ex)
-                //{
-                   // MessageBox.Show(ex.Message, "This should never occur");
-                //}
+            lcKey = Convert.ToString(lstGenres.SelectedItem);
+            if (lcKey != null)
+            try
+            {
+                    frmGenre.Run(lstGenres.SelectedItem as string);
+                }
+             catch (Exception ex)
+            {
+             MessageBox.Show(ex.Message, "This should never occur");
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

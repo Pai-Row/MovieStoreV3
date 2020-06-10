@@ -14,8 +14,16 @@ namespace MovieStore
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<string>>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetGenreNames/")); 
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetGenreNames/"));
         }
-    }
 
+        internal async static Task<clsGenre> GetGenreAsync(string prGenreName)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsGenre>
+                    (await lcHttpClient.GetStringAsync
+                    ("http://localhost:60064/api/gallery/GetGenre?Name=" + prGenreName));
+        }
+
+    }
 }
