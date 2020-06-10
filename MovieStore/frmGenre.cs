@@ -76,10 +76,10 @@ namespace MovieStore
 
         public void UpdateForm()
         {
-            txtName.Text = _Genre.Name;
-            txtSpeciality.Text = _Genre.Speciality;
-            txtPhone.Text = _Genre.Phone;
-            _WorksList = _Genre.WorksList;
+            lstMovies.Text = _Genre.Name;
+            lblTags.Text = _Genre.Tags;
+            lstMovies.Text = _Genre.Phone;
+            _lstMovies = _Genre.lstMovies;
 
             frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
             updateTitle(_Genre.GenreList.MovieName);
