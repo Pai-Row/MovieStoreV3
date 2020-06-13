@@ -88,11 +88,11 @@ namespace MovieStore
         public void SetDetails(clsGenre prGenre)
         {
             _Genre = prGenre;
-            txtName.Enabled = string.IsNullOrEmpty(_Genre.Name);
+            //txtName.Enabled = string.IsNullOrEmpty(_Genre.Name);
             //UpdateForm();
             UpdateDisplay();
             frmMain.Instance.MovieNameChanged += new frmMain.Notify(updateTitle);
-            updateTitle(_Genre.GenreList.MovieName);
+            //updateTitle(_Genre.GenreList.MovieName);
             Show();
         }
 
@@ -113,20 +113,6 @@ namespace MovieStore
             //    UpdateDisplay();
             //    frmMain.Instance.UpdateDisplay();
             //}
-        }
-
-        private void lstWorks_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                //_WorksList.EditWork(lstWorks.SelectedIndex);
-                UpdateDisplay();
-                frmMain.Instance.UpdateDisplay();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -180,6 +166,20 @@ namespace MovieStore
         {
             //_WorksList.SortOrder = Convert.ToByte(rbByDate.Checked);
             //UpdateDisplay();
+        }
+
+        private void lstMovies_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                //_WorksList.EditWork(lstWorks.SelectedIndex);
+                UpdateDisplay();
+                frmMain.Instance.UpdateDisplay();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

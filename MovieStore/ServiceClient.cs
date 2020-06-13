@@ -22,7 +22,7 @@ namespace MovieStore
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<clsGenre>
                     (await lcHttpClient.GetStringAsync
-                    ("http://localhost:60064/api/gallery/GetGenre?Name=" + prGenreName));
+                    ("http://localhost:60064/api/movie/GetGenre?Name=" + prGenreName));
         }
 
     }

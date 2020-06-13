@@ -18,7 +18,7 @@ namespace MovieStore
 
         public delegate void Notify(string prGalleryName);
 
-        public event Notify GalleryNameChanged;
+        public event Notify MovieNameChanged;
 
         private frmMain()
         {
@@ -30,10 +30,10 @@ namespace MovieStore
             get { return frmMain._Instance; }
         }
 
-        private void updateTitle(string prGalleryName)
+        private void updateTitle(string prGenreName)
         {
-            if (!string.IsNullOrEmpty(prGalleryName))
-                Text = "Gallery (v3 C) - " + prGalleryName;
+            if (!string.IsNullOrEmpty(prGenreName))
+                Text = "Genre (v3 C) - " + prGenreName;
         }
 
         public async void UpdateDisplay()
@@ -45,7 +45,7 @@ namespace MovieStore
 
             }
             catch (Exception ex)
-            { 
+            {
                 throw;
             }
         }
@@ -64,18 +64,7 @@ namespace MovieStore
 
         private void lstGenres_DoubleClick(object sender, EventArgs e)
         {
-            string lcKey;
-
-            lcKey = Convert.ToString(lstGenres.SelectedItem);
-            if (lcKey != null)
-            try
-            {
-                frmGenre.Run(lstGenres.SelectedItem as string);
-            }
-             catch (Exception ex)
-            {
-             MessageBox.Show(ex.Message, "This should never occur");
-            }
+            openSelectedGenre();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -112,6 +101,27 @@ namespace MovieStore
         private void frmMain_Load(object sender, EventArgs e)
         {
             UpdateDisplay();
+        }
+
+        private void btnGenre_Click(object sender, EventArgs e)
+        {
+            openSelectedGenre();
+        }
+
+        private void openSelectedGenre ()
+        {
+            string lcKey;
+
+            lcKey = Convert.ToString(lstGenres.SelectedItem);
+            if (lcKey != null)
+                try
+                {
+                    frmGenre.Run(lstGenres.SelectedItem as string);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "This should never occur");
+                }
         }
     }
 }
