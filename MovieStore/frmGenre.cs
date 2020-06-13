@@ -16,8 +16,8 @@ namespace MovieStore
         private clsGenre _Genre;
         //private clsWorksList _WorksList;
 
-        private static Dictionary<clsGenre, frmGenre> _GenreFormList =
-            new Dictionary<clsGenre, frmGenre>();
+        private static Dictionary<string, frmGenre> _GenreFormList =
+            new Dictionary<string, frmGenre>();
         public frmGenre()
         {
             InitializeComponent();
@@ -74,22 +74,22 @@ namespace MovieStore
             //lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
-        public void UpdateForm()
-        {
-            lstMovies.Text = _Genre.Name;
-            lblTags.Text = _Genre.Tags;
-            lstMovies.Text = _Genre.Price;
-            _lstMovies = _Genre.lstMovies;
+        //public void UpdateForm()
+        //{
+        //    lstMovies.Text = _Genre.Name;
+        //    lblTags.Text = _Genre.Tags;
+        //    lstMovies.Text = _Genre.Price;
+        //    _lstMovies = _Genre.lstMovies;
 
-            frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
-            updateTitle(_Genre.GenreList.MovieName);
-        }
+        //    frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
+        //    updateTitle(_Genre.GenreList.MovieName);
+        //}
 
         public void SetDetails(clsGenre prGenre)
         {
             _Genre = prGenre;
             txtName.Enabled = string.IsNullOrEmpty(_Genre.Name);
-            UpdateForm();
+            //UpdateForm();
             UpdateDisplay();
             frmMain.Instance.MovieNameChanged += new frmMain.Notify(updateTitle);
             updateTitle(_Genre.GenreList.MovieName);
@@ -162,19 +162,19 @@ namespace MovieStore
             //    }
         }
 
-        //private Boolean isValid()
-        //{
-        //    //if (txtName.Enabled && txtName.Text != "")
-        //    //    if (_Artist.IsDuplicate(txtName.Text))
-        //    //    {
-        //    //        MessageBox.Show("Artist with that name already exists!", "Error adding artist");
-        //    //        return false;
-        //    //    }
-        //    //    else
-        //    //        return true;
-        //    //else
-        //    //    return true;
-        //}
+        private Boolean isValid()
+        {
+            //if (txtname.enabled && txtname.text != "")
+            //    if (_artist.isduplicate(txtname.text))
+            //    {
+            //        messagebox.show("artist with that name already exists!", "error adding artist");
+            //        return false;
+            //    }
+            //    else
+            //        return true;
+            //else
+            return true;
+        }
 
         private void rbByDate_CheckedChanged(object sender, EventArgs e)
         {

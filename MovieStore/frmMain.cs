@@ -70,8 +70,8 @@ namespace MovieStore
             if (lcKey != null)
             try
             {
-                    frmGenre.Run(lstGenres.SelectedItem as string);
-                }
+                frmGenre.Run(lstGenres.SelectedItem as string);
+            }
              catch (Exception ex)
             {
              MessageBox.Show(ex.Message, "This should never occur");
