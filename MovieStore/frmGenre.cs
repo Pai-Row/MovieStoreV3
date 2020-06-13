@@ -127,27 +127,6 @@ namespace MovieStore
             //}
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            //if (isValid() == true)
-            //    try
-            //    {
-            //        pushData();
-            //        if (txtName.Enabled)
-            //        {
-            //            _Artist.NewArtist();
-            //            MessageBox.Show("Artist added!", "Success");
-            //            frmMain.Instance.UpdateDisplay();
-            //            txtName.Enabled = false;
-            //        }
-            //        Hide();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-        }
-
         private Boolean isValid()
         {
             //if (txtname.enabled && txtname.text != "")
@@ -179,6 +158,22 @@ namespace MovieStore
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void btnClose_Click(object sender, EventArgs e)
+        {
+            {
+                pushData();
+                if (lstMovies.Enabled)
+                {
+                    MessageBox.Show(await ServiceClient.InsertGenreAsync(_Genre));
+                    frmMain.Instance.UpdateDisplay();
+                    lstMovies.Enabled = false;
+                }
+                else
+                    MessageBox.Show(await ServiceClient.UpdateGenreAsync(_Genre));
+                Hide();
             }
         }
     }

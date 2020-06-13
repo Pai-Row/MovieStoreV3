@@ -54,11 +54,11 @@ namespace MovieStore
         {
             try
             {
-                //frmArtist.Run(new clsArtist(_ArtistList));
+                frmGenre.Run(null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error adding new artist");
+                MessageBox.Show(ex.Message, "Error adding new Genre");
             }
         }
 

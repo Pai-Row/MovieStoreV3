@@ -36,6 +36,54 @@ namespace MovieSelfHost
             else
                 return null;
         }
+
+        public string PutGenre(clsGenre prGenre)
+        {   // update
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                "UPDATE Genre SET " +
+                "Tags = @Tags, " +
+                "WHERE Name = @Name",
+                    prepareGenreParameters(prGenre));
+                if (lcRecCount == 1)
+                    return "One Genre updated";
+                else
+                    return "Unexpected genre update count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        public string PostGenre(clsGenre prGenre)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                "INSERT INTO Artist VALUES (" +
+                "@Name, " +
+                "@Tags, ",
+                prepareGenreParameters(prGenre));
+                if (lcRecCount == 1)
+                    return "One Genre added";
+                else
+                    return "Unexpected genre addition count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        private Dictionary<string, object> prepareGenreParameters(clsGenre prGenre)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(3);
+            par.Add("Name", prGenre.Name);
+            par.Add("Tags", prGenre.Tags);
+            return par;
+        }
     }
 }
 

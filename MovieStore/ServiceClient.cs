@@ -25,5 +25,26 @@ namespace MovieStore
                     ("http://localhost:60064/api/movie/GetGenre?Name=" + prGenreName));
         }
 
+        private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+        {
+            using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))
+            using (lcReqMessage.Content =
+                new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json"))
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+        }
+
+        internal async static Task<string> InsertGenreAsync(clsGenre prGenre)
+        {
+            return await InsertOrUpdateAsync(prGenre, "http://localhost:60064/api/movie/PostGenre", "POST");
+        }
+
+        internal async static Task<string> UpdateGenreAsync(clsGenre prGenre)
+        {
+            return await InsertOrUpdateAsync(prGenre, "http://localhost:60064/api/movie/PutGenre", "PUT");
+        }
     }
 }
