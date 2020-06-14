@@ -46,17 +46,13 @@
             this.lblTags.AutoSize = true;
             this.lblTags.Location = new System.Drawing.Point(12, 9);
             this.lblTags.Name = "lblTags";
-            this.lblTags.Size = new System.Drawing.Size(230, 13);
+            this.lblTags.Size = new System.Drawing.Size(34, 13);
             this.lblTags.TabIndex = 0;
-            this.lblTags.Text = "Tags: Supernatural, Jumpscares, Bloody, Scary";
+            this.lblTags.Text = "Tags:";
             // 
             // lstMovies
             // 
             this.lstMovies.FormattingEnabled = true;
-            this.lstMovies.Items.AddRange(new object[] {
-            "Paranormal Activity\t\t$4\t5\t8 Days",
-            "REC\t\t\t$5\t3\t5 Days",
-            "The Conjuring\t\t$6\t2\t3 Days"});
             this.lstMovies.Location = new System.Drawing.Point(15, 44);
             this.lstMovies.Name = "lstMovies";
             this.lstMovies.Size = new System.Drawing.Size(569, 173);
@@ -130,6 +126,9 @@
             // cbRelease
             // 
             this.cbRelease.FormattingEnabled = true;
+            this.cbRelease.Items.AddRange(new object[] {
+            "Rentable",
+            "Buyable"});
             this.cbRelease.Location = new System.Drawing.Point(327, 225);
             this.cbRelease.Name = "cbRelease";
             this.cbRelease.Size = new System.Drawing.Size(121, 21);
