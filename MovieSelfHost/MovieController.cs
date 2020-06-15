@@ -31,59 +31,39 @@ namespace MovieSelfHost
                 return new clsGenre()
                 {
                     Name = (string)lcResult.Rows[0]["Name"],
-                    Tags = (string)lcResult.Rows[0]["Tags"]
+                    Tags = (string)lcResult.Rows[0]["Tags"],
+                    MovieList = getGenreMovie((int)lcResult.Rows[0]["GenreID"])
                 };
             else
                 return null;
         }
 
-        public string PutGenre(clsGenre prGenre)
-        {   // update
-            try
-            {
-                int lcRecCount = clsDbConnection.Execute(
-                "UPDATE Genre SET " +
-                "Tags = @Tags, " +
-                "WHERE Name = @Name",
-                    prepareGenreParameters(prGenre));
-                if (lcRecCount == 1)
-                    return "One Genre updated";
-                else
-                    return "Unexpected genre update count: " + lcRecCount;
-            }
-            catch (Exception ex)
-            {
-                return ex.GetBaseException().Message;
-            }
+        private List<clsAllMovie> getGenreMovie(int ID)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("ID", ID);
+            DataTable lcResult = clsDbConnection.GetDataTable("SELECT * FROM Movie WHERE GenreID = @ID", par);
+            List<clsAllMovie> lcWorks = new List<clsAllMovie>();
+            foreach (DataRow dr in lcResult.Rows)
+                lcWorks.Add(dataRow2AllMovie(dr));
+            return lcWorks;
         }
 
-        public string PostGenre(clsGenre prGenre)
+        private clsAllMovie dataRow2AllMovie(DataRow dr)
         {
-            try
+            return new clsAllMovie()
             {
-                int lcRecCount = clsDbConnection.Execute(
-                "INSERT INTO Artist VALUES (" +
-                "@Name, " +
-                "@Tags, ",
-                prepareGenreParameters(prGenre));
-                if (lcRecCount == 1)
-                    return "One Genre added";
-                else
-                    return "Unexpected genre addition count: " + lcRecCount;
-            }
-            catch (Exception ex)
-            {
-                return ex.GetBaseException().Message;
-            }
-        }
-
-        private Dictionary<string, object> prepareGenreParameters(clsGenre prGenre)
-        {
-            Dictionary<string, object> par = new Dictionary<string, object>(3);
-            par.Add("Name", prGenre.Name);
-            par.Add("Tags", prGenre.Tags);
-            return par;
-        }
-    }
+                MovieID = Convert.ToInt16(dr["MovieID"]),
+                GenreID = Convert.ToInt16(dr["GenreID"]),
+                Title = Convert.ToString(dr["Title"]),
+                Price = Convert.ToInt16(dr["Price"]),
+                DateTimeModified = Convert.ToDateTime(dr["DateTimeModified"]),
+                Quantity = Convert.ToInt16(dr["Quantity"]),
+                ReleaseDate = Convert.ToDateTime(dr["ReleaseDate"]),
+                Rentable = Convert.ToBoolean(dr["Rentable"]),
+                Discount = Convert.ToInt16(dr["Discount"]),
+            };
+    
+    }   }
 }
 

@@ -14,7 +14,7 @@ namespace MovieStore
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<string>>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetGenreNames/"));
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetGenreNames"));
         }
 
         internal async static Task<clsGenre> GetGenreAsync(string prGenreName)
@@ -35,16 +35,6 @@ namespace MovieStore
                 HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
                 return await lcRespMessage.Content.ReadAsStringAsync();
             }
-        }
-
-        internal async static Task<string> InsertGenreAsync(clsGenre prGenre)
-        {
-            return await InsertOrUpdateAsync(prGenre, "http://localhost:60064/api/movie/PostGenre", "POST");
-        }
-
-        internal async static Task<string> UpdateGenreAsync(clsGenre prGenre)
-        {
-            return await InsertOrUpdateAsync(prGenre, "http://localhost:60064/api/movie/PutGenre", "PUT");
         }
     }
 }

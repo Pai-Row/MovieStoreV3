@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MovieStore
 {
-    public partial class frmBuyable : Form
+    public partial class frmBuyable : frmMovie
     {
         public frmBuyable()
         {
             InitializeComponent();
+        }
+
+        public static readonly frmBuyable _Instance = new frmBuyable();
+        public static frmBuyable Instance
+        {
+            get { return frmBuyable._Instance; }
+        }
+        public static void Run(clsAllMovie prMovie)
+        {
+            Instance.SetDetails(prMovie);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

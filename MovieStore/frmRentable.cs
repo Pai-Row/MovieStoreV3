@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace MovieStore
 {
-    public partial class frmRentable : Form
+    public partial class frmRentable : frmMovie
     {
         public frmRentable()
         {
             InitializeComponent();
+        }
+
+        public static readonly frmRentable _Instance = new frmRentable();
+        public static frmRentable Instance
+        {
+            get { return frmRentable._Instance; }
+        }
+
+        public static void Run(clsAllMovie prMovie)
+        {
+            Instance.SetDetails(prMovie);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

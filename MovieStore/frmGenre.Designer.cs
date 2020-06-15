@@ -38,7 +38,6 @@
             this.lblEdit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cbRelease = new System.Windows.Forms.ComboBox();
-            this.lblReturn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTags
@@ -103,6 +102,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add Movie";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblEdit
             // 
@@ -135,21 +135,11 @@
             this.cbRelease.TabIndex = 7;
             this.cbRelease.Text = "Rentable";
             // 
-            // lblReturn
-            // 
-            this.lblReturn.AutoSize = true;
-            this.lblReturn.Location = new System.Drawing.Point(254, 28);
-            this.lblReturn.Name = "lblReturn";
-            this.lblReturn.Size = new System.Drawing.Size(65, 13);
-            this.lblReturn.TabIndex = 8;
-            this.lblReturn.Text = "Return Date";
-            // 
             // frmGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 258);
-            this.Controls.Add(this.lblReturn);
             this.Controls.Add(this.cbRelease);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
@@ -161,7 +151,7 @@
             this.Controls.Add(this.lstMovies);
             this.Controls.Add(this.lblTags);
             this.Name = "frmGenre";
-            this.Text = "Movies - Horror";
+            this.Text = "Movies";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +169,5 @@
         private System.Windows.Forms.Button lblEdit;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cbRelease;
-        private System.Windows.Forms.Label lblReturn;
     }
 }

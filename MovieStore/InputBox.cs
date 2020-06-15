@@ -12,13 +12,11 @@ namespace MovieStore
             InitializeComponent();
             lblQuestion.Text = question;
             lblError.Text = "";
-            txtAnswer.Focus();
             ShowDialog();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            _Answer = txtAnswer.Text;
             DialogResult = DialogResult.OK;
         }
 
@@ -28,10 +26,8 @@ namespace MovieStore
             Close();
         }
 
-        public string Answer
+        public string Answer()
         {
-            get { return _Answer; }
-            //set { mAnswer = value; }
+            return _Answer; }
         }
     }
-}

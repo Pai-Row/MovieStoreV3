@@ -56,22 +56,11 @@ namespace MovieStore
                 Text = "Artist Details - " + prGalleryName;
         }
 
-        private void UpdateDisplay()
+        private void UpdateDisplay(clsGenre prGenre)
         {
-            //if (_WorksList.SortOrder == 0)
-            //{
-            //    _WorksList.SortByName();
-            //    rbByName.Checked = true;
-            //}
-            //else
-            //{
-            //    _WorksList.SortByDate();
-            //    rbByDate.Checked = true;
-            //}
-
-            //lstWorks.DataSource = null;
-            //lstWorks.DataSource = _WorksList;
-            //lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
+            lstMovies.DataSource = null;
+            if (_Genre.MovieList != null)
+                lstMovies.DataSource = prGenre.MovieList;
         }
 
         //public void UpdateForm()
@@ -90,7 +79,7 @@ namespace MovieStore
             _Genre = prGenre;
             //txtName.Enabled = string.IsNullOrEmpty(_Genre.Name);
             //UpdateForm();
-            UpdateDisplay();
+            UpdateDisplay(prGenre);
             frmMain.Instance.MovieNameChanged += new frmMain.Notify(updateTitle);
             //updateTitle(_Genre.GenreList.MovieName);
             Show();
@@ -104,16 +93,6 @@ namespace MovieStore
             //_WorksList.SortOrder = _SortOrder; // no longer required, updated with each rbByDate_CheckedChanged
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //string lcReply = new InputBox(clsWork.FACTORY_PROMPT).Answer;
-            //if (!string.IsNullOrEmpty(lcReply))
-            //{
-            //    _WorksList.AddWork(lcReply[0]);
-            //    UpdateDisplay();
-            //    frmMain.Instance.UpdateDisplay();
-            //}
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -152,7 +131,7 @@ namespace MovieStore
             try
             {
                 //_WorksList.EditWork(lstWorks.SelectedIndex);
-                UpdateDisplay();
+                // UpdateDisplay();
                 frmMain.Instance.UpdateDisplay();
             }
             catch (Exception ex)
@@ -161,20 +140,39 @@ namespace MovieStore
             }
         }
 
-        private async void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             {
-                pushData();
-                if (lstMovies.Enabled)
-                {
-                    MessageBox.Show(await ServiceClient.InsertGenreAsync(_Genre));
-                    frmMain.Instance.UpdateDisplay();
-                    lstMovies.Enabled = false;
-                }
-                else
-                    MessageBox.Show(await ServiceClient.UpdateGenreAsync(_Genre));
                 Hide();
             }
+        }
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            string lcReply;
+            InputBox inputBox = new InputBox("Rent or Buy?");
+            if (inputBox.ShowDialog() == DialogResult.OK)
+            {
+                // Get answer
+                lcReply = (inputBox.Answer());
+                Console.WriteLine(lcReply);
+
+                // Make new movie of corresponding type
+                clsAllMovie lcMovie = new clsAllMovie();
+                if (lcReply != string.Empty)
+                    lcMovie.GenreID = _Genre.GenreID;
+                lcMovie.Rentable = lcReply;
+
+                // Open correct form
+                frmMovie.DispatchWorkForm(lcMovie);
+                refreshFormFromDB(_Genre.GenreName);
+            }
+            else
+            {
+                inputBox.Close();
+                Console.WriteLine("No response");
+            }
+            refreshFormFromDB(_Genre.GenreName);
         }
     }
 }
