@@ -38,7 +38,7 @@ namespace MovieStore
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(203, 93);
+            this.btnOK.Location = new System.Drawing.Point(122, 94);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
@@ -48,7 +48,7 @@ namespace MovieStore
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(122, 93);
+            this.btnCancel.Location = new System.Drawing.Point(203, 94);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;

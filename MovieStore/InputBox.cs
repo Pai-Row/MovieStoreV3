@@ -1,11 +1,12 @@
 using System;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace MovieStore
 {
     public partial class InputBox : Form
     {
-        private string _Answer;
+        private Boolean _Answer;
 
         public InputBox(string question)
         {
@@ -17,7 +18,12 @@ namespace MovieStore
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (rbBuyable.Checked || rbRentable.Checked)
+            {
+                _Answer = rbRentable.Checked;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -26,7 +32,7 @@ namespace MovieStore
             Close();
         }
 
-        public string Answer()
+        public Boolean Answer()
         {
             return _Answer; }
         }

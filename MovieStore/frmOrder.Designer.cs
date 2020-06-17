@@ -43,9 +43,6 @@
             // lstOrder
             // 
             this.lstOrder.FormattingEnabled = true;
-            this.lstOrder.Items.AddRange(new object[] {
-            "001\t\t06/05/2020\t\tScary Movie\t$8.00\t1\tY 14/05/2020",
-            "002\t\t06/05/2020\t\tThe Conjuring\t$15.00\t1\tN"});
             this.lstOrder.Location = new System.Drawing.Point(26, 29);
             this.lstOrder.Name = "lstOrder";
             this.lstOrder.Size = new System.Drawing.Size(507, 225);
@@ -101,9 +98,9 @@
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Location = new System.Drawing.Point(23, 276);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(97, 13);
+            this.lblTotalPrice.Size = new System.Drawing.Size(61, 13);
             this.lblTotalPrice.TabIndex = 6;
-            this.lblTotalPrice.Text = "Total Price: $23.00";
+            this.lblTotalPrice.Text = "Total Price:";
             // 
             // btnCompDel
             // 
@@ -132,7 +129,7 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Return Date";
             // 
-            // frmOrders
+            // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,7 +144,7 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblOrderNumber);
             this.Controls.Add(this.lstOrder);
-            this.Name = "frmOrders";
+            this.Name = "frmOrder";
             this.Text = "Current Orders";
             this.ResumeLayout(false);
             this.PerformLayout();

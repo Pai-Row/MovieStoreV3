@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -58,21 +59,11 @@ namespace MovieStore
 
         private void UpdateDisplay(clsGenre prGenre)
         {
+            lblTags.Text = "Tags: " + prGenre.Tags;
             lstMovies.DataSource = null;
             if (_Genre.MovieList != null)
                 lstMovies.DataSource = prGenre.MovieList;
         }
-
-        //public void UpdateForm()
-        //{
-        //    lstMovies.Text = _Genre.Name;
-        //    lblTags.Text = _Genre.Tags;
-        //    lstMovies.Text = _Genre.Price;
-        //    _lstMovies = _Genre.lstMovies;
-
-        //    frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
-        //    updateTitle(_Genre.GenreList.MovieName);
-        //}
 
         public void SetDetails(clsGenre prGenre)
         {
@@ -85,41 +76,6 @@ namespace MovieStore
             Show();
         }
 
-        private void pushData()
-        {
-            //_Artist.Name = txtName.Text;
-            //_Artist.Speciality = txtSpeciality.Text;
-            //_Artist.Phone = txtPhone.Text;
-            //_WorksList.SortOrder = _SortOrder; // no longer required, updated with each rbByDate_CheckedChanged
-        }
-
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            //int lcIndex = lstWorks.SelectedIndex;
-
-            //if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //{
-            //    _WorksList.RemoveAt(lcIndex);
-            //    UpdateDisplay();
-            //    frmMain.Instance.UpdateDisplay();
-            //}
-        }
-
-        private Boolean isValid()
-        {
-            //if (txtname.enabled && txtname.text != "")
-            //    if (_artist.isduplicate(txtname.text))
-            //    {
-            //        messagebox.show("artist with that name already exists!", "error adding artist");
-            //        return false;
-            //    }
-            //    else
-            //        return true;
-            //else
-            return true;
-        }
-
         private void rbByDate_CheckedChanged(object sender, EventArgs e)
         {
             //_WorksList.SortOrder = Convert.ToByte(rbByDate.Checked);
@@ -128,16 +84,8 @@ namespace MovieStore
 
         private void lstMovies_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                //_WorksList.EditWork(lstWorks.SelectedIndex);
-                // UpdateDisplay();
-                frmMain.Instance.UpdateDisplay();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            frmMovie.DispatchWorkForm(lstMovies.SelectedValue as clsAllMovie);
+            refreshFormFromDB(_Genre.Name);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -147,9 +95,9 @@ namespace MovieStore
             }
         }
 
-        private async void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            string lcReply;
+            Boolean lcReply;
             InputBox inputBox = new InputBox("Rent or Buy?");
             if (inputBox.ShowDialog() == DialogResult.OK)
             {
@@ -159,20 +107,36 @@ namespace MovieStore
 
                 // Make new movie of corresponding type
                 clsAllMovie lcMovie = new clsAllMovie();
-                if (lcReply != string.Empty)
+                if (lcReply)
                     lcMovie.GenreID = _Genre.GenreID;
                 lcMovie.Rentable = lcReply;
 
                 // Open correct form
                 frmMovie.DispatchWorkForm(lcMovie);
-                refreshFormFromDB(_Genre.GenreName);
+                refreshFormFromDB(_Genre.Name);
             }
             else
             {
                 inputBox.Close();
                 Console.WriteLine("No response");
             }
-            refreshFormFromDB(_Genre.GenreName);
+            refreshFormFromDB(_Genre.Name);
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult lcResult = MessageBox.Show("Are you sure you want to delete this item?", "Remove item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (lcResult == DialogResult.Yes)
+            {
+                MessageBox.Show(await ServiceClient.DeleteMovieAsync(lstMovies.SelectedItem as clsAllMovie));
+                refreshFormFromDB(_Genre.Name);
+            }
+        }
+
+        private void lblEdit_Click(object sender, EventArgs e)
+        {
+            frmMovie.DispatchWorkForm(lstMovies.SelectedValue as clsAllMovie);
+            refreshFormFromDB(_Genre.Name);
         }
     }
 }

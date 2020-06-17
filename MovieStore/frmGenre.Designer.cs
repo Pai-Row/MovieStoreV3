@@ -32,12 +32,11 @@
             this.lstMovies = new System.Windows.Forms.ListBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblAvailable = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblEdit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.cbRelease = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTags
@@ -76,14 +75,14 @@
             this.lblPrice.TabIndex = 3;
             this.lblPrice.Text = "Price $";
             // 
-            // lblQuantity
+            // lblAvailable
             // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(201, 28);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(46, 13);
-            this.lblQuantity.TabIndex = 4;
-            this.lblQuantity.Text = "Quantity";
+            this.lblAvailable.AutoSize = true;
+            this.lblAvailable.Location = new System.Drawing.Point(201, 28);
+            this.lblAvailable.Name = "lblAvailable";
+            this.lblAvailable.Size = new System.Drawing.Size(50, 13);
+            this.lblAvailable.TabIndex = 4;
+            this.lblAvailable.Text = "Available";
             // 
             // btnDelete
             // 
@@ -93,6 +92,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete Movie";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -112,6 +112,7 @@
             this.lblEdit.TabIndex = 5;
             this.lblEdit.Text = "Edit Movie";
             this.lblEdit.UseVisualStyleBackColor = true;
+            this.lblEdit.Click += new System.EventHandler(this.lblEdit_Click);
             // 
             // btnClose
             // 
@@ -123,29 +124,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // cbRelease
-            // 
-            this.cbRelease.FormattingEnabled = true;
-            this.cbRelease.Items.AddRange(new object[] {
-            "Rentable",
-            "Buyable"});
-            this.cbRelease.Location = new System.Drawing.Point(327, 225);
-            this.cbRelease.Name = "cbRelease";
-            this.cbRelease.Size = new System.Drawing.Size(121, 21);
-            this.cbRelease.TabIndex = 7;
-            this.cbRelease.Text = "Rentable";
-            // 
             // frmGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 258);
-            this.Controls.Add(this.cbRelease);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblEdit);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.lblQuantity);
+            this.Controls.Add(this.lblAvailable);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lstMovies);
@@ -163,11 +151,10 @@
         private System.Windows.Forms.ListBox lstMovies;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Label lblAvailable;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button lblEdit;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ComboBox cbRelease;
     }
 }

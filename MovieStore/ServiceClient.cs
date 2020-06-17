@@ -36,5 +36,32 @@ namespace MovieStore
                 return await lcRespMessage.Content.ReadAsStringAsync();
             }
         }
+
+        internal async static Task<string> UpdateMovieAsync(clsAllMovie prMovie)
+        {
+            return await InsertOrUpdateAsync(prMovie, "http://localhost:60064/api/movie/PutMovie", "PUT");
+        }
+
+        internal async static Task<string> PostMovieAsync(clsAllMovie prMovie)
+        {
+            return await InsertOrUpdateAsync(prMovie, "http://localhost:60064/api/movie/PostMovie", "POST");
+        }
+
+        internal async static Task<string> DeleteMovieAsync(clsAllMovie prMovie)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync
+                ($"http://localhost:60064/api/movie/DeleteMovie?MovieID={prMovie.MovieID}");
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+        }
+
+        internal async static Task<List<string>> GetMovieTitlesAsync(string prTitle, bool prRentable)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<string>>
+                (await lcHttpClient.GetStringAsync(string.Format("http://localhost:60064/api/movie/GetMovieTitles?Title={0}&Rentable={1}", prTitle, prRentable)));
+        }
     }
 }
