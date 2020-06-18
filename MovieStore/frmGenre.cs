@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieUniversal
@@ -68,7 +61,6 @@ namespace MovieUniversal
         {
             _Genre = prGenre;
             UpdateDisplay(prGenre);
-            frmMain.Instance.MovieNameChanged += new frmMain.Notify(updateTitle);
             Show();
         }
 
@@ -91,16 +83,14 @@ namespace MovieUniversal
             InputBox inputBox = new InputBox("Rentable or Buyable?");
             if (inputBox.ShowDialog() == DialogResult.OK)
             {
-                // Get answer
+
                 lcReply = (inputBox.Answer());
                 Console.WriteLine(lcReply);
 
-                // Make new movie of corresponding type
                 clsAllMovie lcMovie = new clsAllMovie();
                 lcMovie.GenreID = _Genre.GenreID;
                 lcMovie.Rentable = lcReply;
 
-                // Open correct form
                 frmMovie.DispatchWorkForm(lcMovie);
                 refreshFormFromDB(_Genre.Name);
             }

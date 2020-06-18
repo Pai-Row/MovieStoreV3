@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MovieUniversal
@@ -17,9 +15,6 @@ namespace MovieUniversal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //clsPainting.LoadPaintingForm = frmPainting.Run;
-            //clsPhotograph.LoadPhotographForm = frmPhotograph.Run;
-            //clsSculpture.LoadSculptureForm = frmSculpture.Run;
             Application.Run(frmMain.Instance);
         }
     }

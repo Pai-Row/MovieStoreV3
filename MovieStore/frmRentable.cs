@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MovieUniversal
@@ -53,7 +45,7 @@ namespace MovieUniversal
             _Movie.ReleaseDate = Convert.ToDateTime(txtRelease.Text);
             _Movie.DateTimeModified = DateTime.Now;
             _Movie.ReturnDate = Convert.ToDateTime(txtReturn.Text);
-            _Movie.Discount = 0; // Set Default Discount coz it breaks otherwise
+            _Movie.Discount = 0; // Set Default Discount because it will break otherwise
         }
     }
 }

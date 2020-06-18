@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieSelfHost
 {
@@ -13,7 +10,6 @@ namespace MovieSelfHost
         public string Tags { get; set; }
 
         public List<clsAllMovie> MovieList { get; set; }
-
     }
 
     public class clsAllMovie

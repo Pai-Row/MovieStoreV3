@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieUniversal
@@ -40,7 +34,6 @@ namespace MovieUniversal
         {
             try
             {
-                // lstOrders.DataSource = null; // Crashes when reopening the order form?
                 List<clsOrder> OrdersList = await ServiceClient.GetOrdersListAsync();
                 lstOrder.DataSource = OrdersList;
                 UpdateTotalOrderValue(OrdersList);
