@@ -47,6 +47,7 @@
             this.lstOrder.Name = "lstOrder";
             this.lstOrder.Size = new System.Drawing.Size(507, 225);
             this.lstOrder.TabIndex = 0;
+            this.lstOrder.DoubleClick += new System.EventHandler(this.lstOrder_DoubleClick);
             // 
             // lblOrderNumber
             // 
@@ -148,6 +149,7 @@
             this.Controls.Add(this.lstOrder);
             this.Name = "frmOrder";
             this.Text = "Current Orders";
+            this.Load += new System.EventHandler(this.frmOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

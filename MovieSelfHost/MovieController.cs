@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -173,20 +174,20 @@ namespace MovieSelfHost
             List<clsOrder> OrderList = new List<clsOrder>();
             if (lcResult.Rows.Count > 0)
             {
-                foreach (var order in lcResult.Rows)
+                for (int i = 0; i < lcResult.Rows.Count; i++)
                 {
                     OrderList.Add(
-                        new clsOrder()
-                        {
-                            OrderID = (int)lcResult.Rows[0]["OrderID"],
-                            MovieID = (int)lcResult.Rows[0]["MovieID"],
-                            Quantity = (int)lcResult.Rows[0]["Quantity"],
-                            Price = (int)lcResult.Rows[0]["Price"],
-                            Date = (DateTime)lcResult.Rows[0]["Date"],
-                            CustomerName = (string)lcResult.Rows[0]["CustomerName"],
-                            CustomerAddress = (string)lcResult.Rows[0]["CustomerAddress"]
-                        }
-                    );
+                       new clsOrder()
+                       {
+                           OrderID = (int)lcResult.Rows[i]["OrderID"],
+                           MovieID = (int)lcResult.Rows[i]["MovieID"],
+                           Quantity = (int)lcResult.Rows[i]["Quantity"],
+                           Price = (int)lcResult.Rows[i]["Price"],
+                           Date = (DateTime)lcResult.Rows[i]["Date"],
+                           CustomerName = (string)lcResult.Rows[i]["CustomerName"],
+                           CustomerAddress = (string)lcResult.Rows[i]["CustomerAddress"]
+                       }
+                   );
                 }
                 return OrderList;
             }  

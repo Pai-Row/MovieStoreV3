@@ -31,8 +31,8 @@ namespace MovieUniversal
 
         private void UpdateDisplay(clsAllMovie prMovie)
         {
-            txbTitle.Text = prMovie.Title;
-            txbPrice.Text = "$" + Convert.ToString(prMovie.Price);
+            txbTitle.Text = "Title: " + prMovie.Title;
+            txbPrice.Text = "Price: $" + Convert.ToString(prMovie.Price);
             txbAvailable.Text = string.Format("Available: {0}", prMovie.Available);
             txbReleaseDate.Text = string.Format("Release Date: {0}", prMovie.ReleaseDate);
             txbRentable.Text = string.Format("Rentable: {0}", prMovie.Rentable);
@@ -57,55 +57,48 @@ namespace MovieUniversal
         }
         private clsOrder createOrder(clsAllMovie prMovie)
         {
-            string lcDate = DateTime.Now.ToString();
             clsOrder lcOrder = new clsOrder()
             {
                 MovieID = prMovie.MovieID,
                 Quantity = Convert.ToInt16(txtQuantity.Text),
                 Price = prMovie.Price * Convert.ToInt16(txtQuantity.Text),
-                //Date = lcDate.Substring(0, 10), Not sure about this
+                Date = DateTime.Now,
                 CustomerName = txtCustomerName.Text,
                 CustomerAddress = txtCustomerAddress.Text
             };
             return lcOrder;
         }
 
-        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        private async void btnOrder_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    if (txtCustomerName.Text == string.Empty || txtCustomerAddress.Text == string.Empty || txtQuantity.Text == string.Empty)
-            //    {
-            //        txbMessage.Text = "Please enter correct details";
-            //    }
-            //    else
-            //    {
-            //        int lcAmountOrdered = Convert.ToInt16(txtQuantity.Text);
-            //        if (lcAmountOrdered > 0 && lcAmountOrdered <= _Movie.Quantity)
-            //        {
-            //            txbMessage.Text = await ServiceClient.PostOrderAsync(createOrder(_Movie));
-            //            updateGameQuantity();
-            //            txbMessage.Text = await ServiceClient.UpdateMovieAsync(_Movie);
-            //        }
-            //        else
-            //        {
-            //            txbMessage.Text = "Cannot order the specified amount";
-            //        }
-            //    }
+            try
+            {
+                if (txtCustomerName.Text == string.Empty || txtCustomerAddress.Text == string.Empty || txtQuantity.Text == string.Empty)
+                {
+                    txbMessage.Text = "Please enter correct details";
+                }
+                else
+                {
+                    int lcAmountOrdered = Convert.ToInt16(txtQuantity.Text);
+                    if (_Movie.Available)
+                    {
+                        txbMessage.Text = await ServiceClient.PostOrderAsync(createOrder(_Movie));
+                        //txbMessage.Text = await ServiceClient.UpdateMovieAsync(_Movie);
+                    }
+                    else
+                    {
+                        txbMessage.Text = "Unavailable";
+                    }
+                }
 
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    txbMessage.Text = ex.Message;
-            //} ##CHECK THIS ALSO##
+            }
+            catch (Exception ex)
+            {
+                txbMessage.Text = ex.Message;
+            } 
         }
 
-        //private void updateQuantity()
-        //{
-        //    _Movie.Quantity -= Convert.ToInt16(txtOrderQuantity.Text);
-        //    txbQuantity.Text = string.Format("Stock: {0} copies left", (_Game.Quantity));
-        //}
     }
 
 

@@ -71,10 +71,10 @@ namespace MovieUniversal
                 (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetMovieTitle?ID=" + prID));
         }
 
-        internal async static Task<List<int>> GetOrdersListAsync()
+        internal async static Task<List<clsOrder>> GetOrdersListAsync()
         {
             using (HttpClient lcHttpClient = new HttpClient())
-                return JsonConvert.DeserializeObject<List<int>>
+                return JsonConvert.DeserializeObject<List<clsOrder>>
                 (await lcHttpClient.GetStringAsync("http://localhost:60064/api/movie/GetOrdersList/"));
         }
 

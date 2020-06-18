@@ -140,6 +140,7 @@
             this.Controls.Add(this.lblTags);
             this.Name = "frmGenre";
             this.Text = "Movies";
+            this.Enter += new System.EventHandler(this.frmGenre_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

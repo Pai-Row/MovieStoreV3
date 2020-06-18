@@ -15,7 +15,6 @@ namespace MovieUniversal
     {
 
         private clsGenre _Genre;
-        //private clsWorksList _WorksList;
 
         private static Dictionary<string, frmGenre> _GenreFormList =
             new Dictionary<string, frmGenre>();
@@ -68,18 +67,9 @@ namespace MovieUniversal
         public void SetDetails(clsGenre prGenre)
         {
             _Genre = prGenre;
-            //txtName.Enabled = string.IsNullOrEmpty(_Genre.Name);
-            //UpdateForm();
             UpdateDisplay(prGenre);
             frmMain.Instance.MovieNameChanged += new frmMain.Notify(updateTitle);
-            //updateTitle(_Genre.GenreList.MovieName);
             Show();
-        }
-
-        private void rbByDate_CheckedChanged(object sender, EventArgs e)
-        {
-            //_WorksList.SortOrder = Convert.ToByte(rbByDate.Checked);
-            //UpdateDisplay();
         }
 
         private void lstMovies_DoubleClick(object sender, EventArgs e)
@@ -136,6 +126,11 @@ namespace MovieUniversal
         private void lblEdit_Click(object sender, EventArgs e)
         {
             frmMovie.DispatchWorkForm(lstMovies.SelectedValue as clsAllMovie);
+            refreshFormFromDB(_Genre.Name);
+        }
+
+        private void frmGenre_Enter(object sender, EventArgs e)
+        {
             refreshFormFromDB(_Genre.Name);
         }
     }
