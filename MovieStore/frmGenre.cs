@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MovieStore
+namespace MovieUniversal
 {
     public partial class frmGenre : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace MovieStore
+﻿namespace MovieUniversal
 {
     partial class frmOrder
     {
@@ -110,6 +110,7 @@
             this.btnCompDel.TabIndex = 7;
             this.btnCompDel.Text = "Complete/Delete";
             this.btnCompDel.UseVisualStyleBackColor = true;
+            this.btnCompDel.Click += new System.EventHandler(this.btnCompDel_Click);
             // 
             // btnClose
             // 
@@ -119,6 +120,7 @@
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label1
             // 

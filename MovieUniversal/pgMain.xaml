@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="MovieUniversal.pgMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MovieUniversal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="688" Loaded="Page_Loaded">
+
+    <Grid Margin="0,10,10,0">
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Movie Store" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" FontFamily="Broadway"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,111,0,0" Text="Genres" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48"/>
+        <ListBox x:Name="lstGenres" Margin="53,180,50,252" FontSize="48"/>
+        <Button x:Name="btnBrowse" Content="Browse Movie Genre" Margin="55,772,0,0" VerticalAlignment="Top" Width="573" Height="66" FontSize="36" Click="btnBrowse_Click" Foreground="White" FocusVisualSecondaryBrush="#99FF4848" FocusVisualPrimaryBrush="#FF810000" BorderBrush="Black">
+            <Button.Background>
+                <AcrylicBrush TintColor="#CCFF0000"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="txbMessage" HorizontalAlignment="Center" Margin="0,872,0,0" Text="Messages" TextWrapping="Wrap" VerticalAlignment="Top" Height="108" Width="628"/>
+
+    </Grid>
+</Page>

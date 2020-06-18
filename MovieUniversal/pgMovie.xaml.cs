@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace MovieUniversal
+{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class pgMovie : Page
+    {
+        public pgMovie()
+        {
+            this.InitializeComponent();
+        }
+
+        private clsAllMovie _Movie;
+
+        private void UpdateDisplay(clsAllMovie prMovie)
+        {
+            txbTitle.Text = prMovie.Title;
+            txbPrice.Text = "$" + Convert.ToString(prMovie.Price);
+            txbAvailable.Text = string.Format("Available: {0}", prMovie.Available);
+            txbReleaseDate.Text = string.Format("Release Date: {0}", prMovie.ReleaseDate);
+            txbRentable.Text = string.Format("Rentable: {0}", prMovie.Rentable);
+            
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter != null)
+            {
+                try
+                {
+                    _Movie = e.Parameter as clsAllMovie;
+                    UpdateDisplay(_Movie);
+                }
+                catch (Exception ex)
+                {
+                    txbMessage.Text = ex.Message;
+                }
+            }
+        }
+        private clsOrder createOrder(clsAllMovie prMovie)
+        {
+            string lcDate = DateTime.Now.ToString();
+            clsOrder lcOrder = new clsOrder()
+            {
+                MovieID = prMovie.MovieID,
+                Quantity = Convert.ToInt16(txtQuantity.Text),
+                Price = prMovie.Price * Convert.ToInt16(txtQuantity.Text),
+                //Date = lcDate.Substring(0, 10), Not sure about this
+                CustomerName = txtCustomerName.Text,
+                CustomerAddress = txtCustomerAddress.Text
+            };
+            return lcOrder;
+        }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    if (txtCustomerName.Text == string.Empty || txtCustomerAddress.Text == string.Empty || txtQuantity.Text == string.Empty)
+            //    {
+            //        txbMessage.Text = "Please enter correct details";
+            //    }
+            //    else
+            //    {
+            //        int lcAmountOrdered = Convert.ToInt16(txtQuantity.Text);
+            //        if (lcAmountOrdered > 0 && lcAmountOrdered <= _Movie.Quantity)
+            //        {
+            //            txbMessage.Text = await ServiceClient.PostOrderAsync(createOrder(_Movie));
+            //            updateGameQuantity();
+            //            txbMessage.Text = await ServiceClient.UpdateMovieAsync(_Movie);
+            //        }
+            //        else
+            //        {
+            //            txbMessage.Text = "Cannot order the specified amount";
+            //        }
+            //    }
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    txbMessage.Text = ex.Message;
+            //} ##CHECK THIS ALSO##
+        }
+
+        //private void updateQuantity()
+        //{
+        //    _Movie.Quantity -= Convert.ToInt16(txtOrderQuantity.Text);
+        //    txbQuantity.Text = string.Format("Stock: {0} copies left", (_Game.Quantity));
+        //}
+    }
+
+
+}

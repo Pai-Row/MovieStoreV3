@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="MovieUniversal.pgMovie"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MovieUniversal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="txbMovieDetails" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Movie Details" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Broadway" FontSize="72"/>
+        <TextBlock x:Name="txbTitle" HorizontalAlignment="Left" Margin="22,92,0,0" Text="Title:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="1450"/>
+        <TextBlock x:Name="txbPrice" HorizontalAlignment="Left" Margin="22,188,0,0" Text="Price:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="1465"/>
+        <TextBlock x:Name="txbAvailable" HorizontalAlignment="Center" Margin="0,284,0,0" Text="Available:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="1461"/>
+        <TextBlock x:Name="txbReleaseDate" HorizontalAlignment="Left" Margin="19,380,0,0" Text="Release Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="1470"/>
+        <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Margin="833,598,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="83" Width="185" FontSize="48"/>
+        <TextBox x:Name="txtCustomerName" HorizontalAlignment="Center" Margin="0,693,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="83" Width="536" FontSize="48"/>
+        <TextBox x:Name="txtCustomerAddress" HorizontalAlignment="Center" Margin="0,810,0,0" Text="Address" TextWrapping="Wrap" VerticalAlignment="Top" Height="83" Width="536" FontSize="48"/>
+        <Button x:Name="btnOrder" Content="Order" Margin="0,922,0,0" VerticalAlignment="Top" Height="68" Width="536" FontSize="36" FontWeight="Normal" BorderBrush="Black" FocusVisualPrimaryBrush="Black" FocusVisualSecondaryBrush="#99FFFFFF" Foreground="White" Click="btnOrder_Click" HorizontalAlignment="Center">
+            <Button.Background>
+                <AcrylicBrush TintColor="#CCFF0000"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="txbReleaseDate_Copy" HorizontalAlignment="Left" Margin="307,592,0,0" Text="Quantity" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="511"/>
+        <TextBlock x:Name="txbRentable" HorizontalAlignment="Left" Margin="22,476,0,0" Text="Rentable:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Width="1474"/>
+        <TextBlock x:Name="txbMessage" HorizontalAlignment="Left" Margin="10,884,0,0" Text="Messages" TextWrapping="Wrap" VerticalAlignment="Top" Height="104" Width="450"/>
+
+    </Grid>
+</Page>

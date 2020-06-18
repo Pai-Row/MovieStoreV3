@@ -1,4 +1,4 @@
-﻿namespace MovieStore
+﻿namespace MovieUniversal
 {
     partial class frmMain
     {
@@ -38,30 +38,26 @@
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(16, 11);
-            this.lblGenre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGenre.Location = new System.Drawing.Point(12, 9);
             this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(48, 17);
+            this.lblGenre.Size = new System.Drawing.Size(36, 13);
             this.lblGenre.TabIndex = 0;
             this.lblGenre.Text = "Genre";
             // 
             // lstGenres
             // 
             this.lstGenres.FormattingEnabled = true;
-            this.lstGenres.ItemHeight = 16;
-            this.lstGenres.Location = new System.Drawing.Point(20, 31);
-            this.lstGenres.Margin = new System.Windows.Forms.Padding(4);
+            this.lstGenres.Location = new System.Drawing.Point(15, 25);
             this.lstGenres.Name = "lstGenres";
-            this.lstGenres.Size = new System.Drawing.Size(200, 148);
+            this.lstGenres.Size = new System.Drawing.Size(151, 121);
             this.lstGenres.TabIndex = 1;
             this.lstGenres.DoubleClick += new System.EventHandler(this.lstGenres_DoubleClick);
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(243, 178);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuit.Location = new System.Drawing.Point(182, 145);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(100, 44);
+            this.btnQuit.Size = new System.Drawing.Size(75, 36);
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -69,10 +65,9 @@
             // 
             // btnGenre
             // 
-            this.btnGenre.Location = new System.Drawing.Point(243, 31);
-            this.btnGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenre.Location = new System.Drawing.Point(182, 25);
             this.btnGenre.Name = "btnGenre";
-            this.btnGenre.Size = new System.Drawing.Size(100, 44);
+            this.btnGenre.Size = new System.Drawing.Size(75, 36);
             this.btnGenre.TabIndex = 3;
             this.btnGenre.Text = "Open Genre";
             this.btnGenre.UseVisualStyleBackColor = true;
@@ -80,25 +75,24 @@
             // 
             // btnOrders
             // 
-            this.btnOrders.Location = new System.Drawing.Point(243, 82);
-            this.btnOrders.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOrders.Location = new System.Drawing.Point(182, 67);
             this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(100, 44);
+            this.btnOrders.Size = new System.Drawing.Size(75, 36);
             this.btnOrders.TabIndex = 4;
             this.btnOrders.Text = "Current Orders";
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 239);
+            this.ClientSize = new System.Drawing.Size(269, 194);
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.btnGenre);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lstGenres);
             this.Controls.Add(this.lblGenre);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Movie Store";
             this.Load += new System.EventHandler(this.frmMain_Load);

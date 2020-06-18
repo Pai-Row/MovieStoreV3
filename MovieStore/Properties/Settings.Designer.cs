@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MovieStore.Properties
+namespace MovieUniversal.Properties
 {
 
 

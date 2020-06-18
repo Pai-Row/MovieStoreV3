@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace MovieStore
+namespace MovieUniversal
 {
     public partial class frmRentable : frmMovie
     {

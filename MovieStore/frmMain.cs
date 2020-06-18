@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MovieStore
+namespace MovieUniversal
 {
     public sealed partial class frmMain : Form
     {   //Singleton
@@ -110,6 +110,11 @@ namespace MovieStore
                 {
                     MessageBox.Show(ex.Message, "This should never occur");
                 }
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            frmOrder.Instance.Run();
         }
     }
 }

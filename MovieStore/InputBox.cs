@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace MovieStore
+namespace MovieUniversal
 {
     public partial class InputBox : Form
     {

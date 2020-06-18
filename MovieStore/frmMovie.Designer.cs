@@ -1,4 +1,4 @@
-﻿namespace MovieStore
+﻿namespace MovieUniversal
 {
     partial class frmMovie
     {
