@@ -57,11 +57,12 @@ namespace MovieUniversal
         }
         private clsOrder createOrder(clsAllMovie prMovie)
         {
+            int discount = (int)prMovie.Discount / 100 * prMovie.Price;
             clsOrder lcOrder = new clsOrder()
             {
                 MovieID = prMovie.MovieID,
                 Quantity = Convert.ToInt16(txtQuantity.Text),
-                Price = prMovie.Price * Convert.ToInt16(txtQuantity.Text),
+                Price = prMovie.Price - discount * Convert.ToInt16(txtQuantity.Text),
                 Date = DateTime.Now,
                 CustomerName = txtCustomerName.Text,
                 CustomerAddress = txtCustomerAddress.Text
@@ -83,7 +84,6 @@ namespace MovieUniversal
                     if (_Movie.Available)
                     {
                         txbMessage.Text = await ServiceClient.PostOrderAsync(createOrder(_Movie));
-                        //txbMessage.Text = await ServiceClient.UpdateMovieAsync(_Movie);
                     }
                     else
                     {
@@ -100,6 +100,5 @@ namespace MovieUniversal
         }
 
     }
-
 
 }

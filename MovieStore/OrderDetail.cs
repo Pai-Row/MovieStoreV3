@@ -48,7 +48,7 @@ namespace MovieUniversal
         private void UpdateDisplay(clsOrder prOrder)
         {
             lblDetail.Text = string.Format(
-                "OrderID: {0}\nMovieID: {1}\n\nQuantity: {2}\nPrice: ${3}\n\nDate: {4}\nCustomer Name: {5}\nCustomer Address: {5}",
+                "OrderID: {0}\nMovieID: {1}\n\nQuantity: {2}\nPrice: ${3}\n\nDate: {4}\nCustomer Name: {5}\nCustomer Address: {6}",
                 prOrder.OrderID, prOrder.MovieID, prOrder.Quantity, prOrder.Price, prOrder.Date, prOrder.CustomerName, prOrder.CustomerAddress
                 );
         }

@@ -69,7 +69,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(155, 28);
+            this.lblPrice.Location = new System.Drawing.Point(45, 28);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(40, 13);
             this.lblPrice.TabIndex = 3;
@@ -78,7 +78,7 @@
             // lblAvailable
             // 
             this.lblAvailable.AutoSize = true;
-            this.lblAvailable.Location = new System.Drawing.Point(201, 28);
+            this.lblAvailable.Location = new System.Drawing.Point(138, 28);
             this.lblAvailable.Name = "lblAvailable";
             this.lblAvailable.Size = new System.Drawing.Size(50, 13);
             this.lblAvailable.TabIndex = 4;

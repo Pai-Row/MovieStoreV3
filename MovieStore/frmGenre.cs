@@ -88,7 +88,7 @@ namespace MovieUniversal
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Boolean lcReply;
-            InputBox inputBox = new InputBox("Rent or Buy?");
+            InputBox inputBox = new InputBox("Rentable or Buyable?");
             if (inputBox.ShowDialog() == DialogResult.OK)
             {
                 // Get answer
@@ -97,8 +97,7 @@ namespace MovieUniversal
 
                 // Make new movie of corresponding type
                 clsAllMovie lcMovie = new clsAllMovie();
-                if (lcReply)
-                    lcMovie.GenreID = _Genre.GenreID;
+                lcMovie.GenreID = _Genre.GenreID;
                 lcMovie.Rentable = lcReply;
 
                 // Open correct form

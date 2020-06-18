@@ -20,11 +20,11 @@ namespace MovieUniversal
 
         protected clsAllMovie _Movie;
 
-        public delegate void LoadGameFormDelegate(clsAllMovie prMovie);
+        public delegate void LoadMovieFormDelegate(clsAllMovie prMovie);
         public static Dictionary<Boolean, Delegate> _MoviesForm = new Dictionary<Boolean, Delegate>
         {
-            {true, new LoadGameFormDelegate(frmRentable.Run)},
-            {false, new LoadGameFormDelegate(frmBuyable.Run)}
+            {true, new LoadMovieFormDelegate(frmRentable.Run)},
+            {false, new LoadMovieFormDelegate(frmBuyable.Run)}
         };
 
         public void SetDetails(clsAllMovie prMovie)

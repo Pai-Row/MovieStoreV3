@@ -131,7 +131,7 @@ namespace MovieSelfHost
                 if (lcRecCount == 1)
                     return "Record removed";
                 else
-                    return "Unexpected game removal count: " + lcRecCount;
+                    return "Unexpected movie removal count: " + lcRecCount;
             }
             catch (Exception ex)
             {
